@@ -1,0 +1,37 @@
+.cardContainer {
+  background-color: #fff;
+  min-width: 18rem;
+  max-width: 19rem;
+  border-radius: 20px;
+  padding: 1rem;
+  box-shadow: 3px 2px #959393;
+  margin: 1rem;
+}
+.body {
+  display: grid;
+  grid-template-columns: auto;
+  align-items: center;
+  justify-items: center;
+  width: 100vw;
+  height: 100vh;
+  background-image: linear-gradient(45deg, #0a2647, #2c74b3);
+  font-family: "Montserrat", sans-serif;
+}
+.title {
+  padding: 0.5rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+.desc {
+  padding: 0.5rem;
+}
+.cards {
+  width: 100vw;
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  row-gap: 25px;
+  margin-top: 2px;
+}
+.update-btn {
+  width: 10rem;
+}
