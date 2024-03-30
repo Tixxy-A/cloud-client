@@ -95,25 +95,27 @@ export default function ResourceControl() {
   }
 
   return (
-    <div className="body grid">
-      <div className="cards">
+    <div className="mt-20">
+      <div className="grid grid-cols-4 gap-8 justify-center">
         {data.map((d) => (
-          <div key={d.id} className="cardContainer">
-            <h3 className="title text-gray-800 text-s font-bold text-center">
+          <div key={d.id} className="py-4 px-2 shadow-2xl rounded-2xl bg-gradient-to-r from-gray-800 to-indigo-500 hover:scale-110 duration-300">
+            <h3 className="title text-gray-400 text-s font-bold text-center">
               {d.title}
             </h3>
-            <p className="block text-gray-600 text-sm font-bold mb-2 text-center">
+            <p className="block text-gray-300 text-sm font-bold mb-2 text-center">
               {d.content}
             </p>
           </div>
         ))}
       </div>
+      <div className="mt-10 flex justify-center">
       <button
-        className="update-btn mr-8 mt-9 bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded"
-        onClick={isvalid}
-      >
-        Update
-      </button>
+      className="update-btn mr-8 mt-9 bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded"
+      onClick={isvalid}
+    >
+      Update
+    </button>
+      </div>
       {valid && (
         <div className="grid w-full place-items-center mt-10">
           <div className="w-2/5">

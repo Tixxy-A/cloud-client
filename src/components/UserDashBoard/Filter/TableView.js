@@ -10,7 +10,7 @@ import {
 // A great library for fuzzy filtering/sorting items
 import { matchSorter } from "match-sorter";
 //import { fetchData } from '../../../api/index';
-import { Link } from "react-router-dom";
+import { Link ,Navigate} from "react-router-dom";
 import Popup from "./Popup";
 import data from "./ProvideData";
 import { useAppContext } from "../../../context/appContext";
@@ -335,18 +335,28 @@ function Table({ columns, data, setShowPopup, setTempResource }) {
           <tbody {...getTableBodyProps()}>
             {firstPageRows.map((row, i) => {
               prepareRow(row);
+              //console.log(row);
               return (
                 <tr {...row.getRowProps()}>
                   {row.cells.map((cell) => {
                     return (
                       <td className="text-black-200"
                         onClick={() => {
-                          setTempResource(cell.row.original);
-                          setShowPopup(true);
+                          
+                            setTempResource(cell.row.original);
+                            setShowPopup(true);
+                          
+                            
+                            
+                            
+                            
+                          
+                          
                         }}
                         {...cell.getCellProps()}
                       >
-                        {cell.render("Cell")}
+                        {cell.column.Header!=='Name' && cell.render("Cell")}
+                        {cell.column.Header==='Name' && <a href={`/resource/${cell.row.original._id}`}>{cell.row.values.name}</a>}
                       </td>
                     );
                   })}
@@ -396,7 +406,7 @@ function TableView() {
   const getData = async () => {
     try {
       const temp = await fetchAllProviders();
-      console.log(temp);
+      //console.log(temp);
       let val = temp;
       // console.log(val);
 

@@ -14,7 +14,7 @@ const SharedLayout = () => {
         <div>
           {user && <NavBar />}
           {provider && <ProviderNavBar />}
-          <div className="dashboard-page">
+          <div className="dashboard-page h-min-screen ">
             <Outlet />
           </div>
         </div>
