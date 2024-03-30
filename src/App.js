@@ -17,6 +17,7 @@ import { useAppContext } from "./context/appContext";
 import OverviewPage from "./pages/ProviderDashboard/OverviewPage";
 import ProtectedAdminRoute from "./pages/ProtectedAdminRoute";
 import IndexPage from "./pages/indexPage";
+import Single from './components/UserDashBoard/ResourcePage/Single'
 
 import Sla from './components/SLA/Slatemplate';
 import Slaprovider from './pages/ProviderDashboard/Sla'
@@ -43,6 +44,7 @@ function App() {
           <Route path="/sla" element={<Slaprovider />} />
           <Route path="/slauser" element={<Sla />} />
           <Route path="/resource-control" element={<ResourceControlPage />} />
+          <Route path="/resource/:id" element={<Single />} />
         </Route>
 
         <Route path="/signup" element={<SignUp userType="client" />} />
