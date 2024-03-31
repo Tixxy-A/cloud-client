@@ -65,6 +65,7 @@ export const AppProvider = ({ children }) => {
     const provider = localStorage.getItem('providerStr');
     const admin = localStorage.getItem('adminStr');
     const token = localStorage.getItem('token');
+    const subscribeStr = localStorage.getItem('subscribedTo');
 
     if (user) {
       const userObj = JSON.parse(user);
@@ -73,10 +74,8 @@ export const AppProvider = ({ children }) => {
       const userResourcesObj =
         userResourcesStr.length > 0 ? JSON.parse(userResourcesStr) : null;
       initialState.userResources = userResourcesObj;
-      const subscribeStr = userObj.subscribedTo;
-      if (subscribeStr) {
-        initialState.subscribedTo = JSON.parse(subscribeStr);
-      }
+      
+      
     }
     if (provider) {
       const providerObj = JSON.parse(provider);
@@ -88,6 +87,9 @@ export const AppProvider = ({ children }) => {
     }
     if (token) {
       initialState.token = token;
+    }
+    if (subscribeStr) {
+      initialState.subscribedTo = JSON.parse(subscribeStr);
     }
   };
   init();

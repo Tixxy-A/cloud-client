@@ -98,7 +98,7 @@ export default function ResourceControl() {
     <div className="mt-20">
       <div className="grid grid-cols-4 gap-8 justify-center">
         {data.map((d) => (
-          <div key={d.id} className="py-4 px-2 shadow-2xl rounded-2xl bg-gradient-to-r from-gray-800 to-indigo-500 hover:scale-110 duration-300">
+          <div key={d.id} className="py-4 px-2 shadow-2xl rounded-2xl bg-gradient-to-r from-blue-900  hover:scale-110 duration-300">
             <h3 className="title text-gray-400 text-s font-bold text-center">
               {d.title}
             </h3>
