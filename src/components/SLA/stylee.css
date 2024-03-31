@@ -23,7 +23,7 @@
 .sla_wrapper table {
     border-collapse: collapse;
     width: 100%;
-    background: #fff;
+    background:rgb(238, 234, 234);
 }
 
 .sla_wrapper table thead tr th {
@@ -35,14 +35,14 @@
 
 .sla_wrapper table tbody tr td, th {
     padding: 1em 1.5em;
-    text-align: left;
+    text-align: center;
 }
 
 tbody th {
 	background-color: #2ea879;
 }
 tbody tr:nth-child(2n-1) {
-    background-color: #f5f5f5;
+   
     transition: all .125s ease-in-out;
 }
 tbody tr:hover {

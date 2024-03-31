@@ -30,65 +30,7 @@ const SLATemplate = () => {
 			console.log(error);
 		}
 	} 
-	const vall = [
-		{
-			cpu_capacity: "Extremely High/ Extremely Good (EH/EG)",
-			memory_size: "Extremely High/ Extremely Good (EH/EG)",
-			boot_time: "Extremely High/ Extremely Good (EH/EG)",
-			scale_up: "Extremely High/ Extremely Good (EH/EG)",
-			scale_down: "Extremely High/ Extremely Good (EH/EG)",
-			scale_up_time: "Extremely High/ Extremely Good (EH/EG)",
-			scale_down_time: "Extremely High/ Extremely Good (EH/EG)",
-			max_vm_configure: "Extremely High/ Extremely Good (EH/EG)",
-			auto_scaling: "Extremely High/ Extremely Good (EH/EG)",
-			storage: "Extremely High/ Extremely Good (EH/EG)",
-			Name: "harsh"
-
-		},
-		{
-			Name: "harshita",
-			cpu_capacity: "Medium Low/Medium Bad (ML/MB)",
-			memory_size: "Medium Low/Medium Bad (ML/MB)",
-			boot_time: "Medium Low/Medium Bad (ML/MB)",
-			scale_up: "Medium Low/Medium Bad (ML/MB)",
-			scale_down: "Medium Low/Medium Bad (ML/MB)",
-			scale_up_time: "Medium Low/Medium Bad (ML/MB)",
-			scale_down_time: "Medium Low/Medium Bad (ML/MB)",
-			max_vm_configure: "Medium Low/Medium Bad (ML/MB)",
-			auto_scaling: "Medium Low/Medium Bad (ML/MB)",
-			storage: "Medium Low/Medium Bad (ML/MB)",
-
-		},
-		{
-			Name: "harshita",
-			cpu_capacity: "High/Good (H/G)",
-			memory_size: "High/Good (H/G)",
-			boot_time: "High/Good (H/G)",
-			scale_up: "High/Good (H/G)",
-			scale_down: "High/Good (H/G)",
-			scale_up_time: "High/Good (H/G)",
-			scale_down_time: "High/Good (H/G)",
-			max_vm_configure: "High/Good (H/G)",
-			auto_scaling: "High/Good (H/G)",
-			storage: "High/Good (H/G)",
-
-		},
-		, {
-			cpu_capacity: "Extremely High/ Extremely Good (EH/EG)",
-			memory_size: "Extremely High/ Extremely Good (EH/EG)",
-			boot_time: "Extremely High/ Extremely Good (EH/EG)",
-			scale_up: "Extremely High/ Extremely Good (EH/EG)",
-			scale_down: "Extremely High/ Extremely Good (EH/EG)",
-			scale_up_time: "Extremely High/ Extremely Good (EH/EG)",
-			scale_down_time: "Extremely High/ Extremely Good (EH/EG)",
-			max_vm_configure: "Extremely High/ Extremely Good (EH/EG)",
-			auto_scaling: "Extremely High/ Extremely Good (EH/EG)",
-			storage: "Extremely High/ Extremely Good (EH/EG)",
-			Name: "harsh"
-
-		},
-
-	]
+	
 
 
 	// useEffect(() => {
@@ -273,13 +215,13 @@ const SLATemplate = () => {
 		<>
 
 			<SLAForm basicModal={basicModal1} setBasicModal={setBasicModal1} toggleShow={toggleShow1} />
-			<div style={{ display: !basicModal1 ? "block" : "none" }}>
-				<div class="sla_container">
+			<div style={{ display: !basicModal1 ? "block" : "none" }} className=' flex justify-center w-3/4'>
+				<div class="sla_container ">
 					<header>
 						<h1 className='mb-4 text-3xl font-extrabold text-gray-900 dark:text-white md:text-5xl lg:text-6xl'>Ranking by SLA Template</h1>
 					</header>
-					<div class="sla_wrapper">
-						<table>
+					<div class="sla_wrapper shadow-2xl ">
+						<table className='text-lg'>
 							<thead>
 								<tr>
 									<th>Rank</th>
@@ -301,11 +243,11 @@ const SLATemplate = () => {
 											//console.log(dataa);
 											return (
 												<>
-													<tr onClick={()=>{
+													<tr className='text-black ' onClick={()=>{
 														settemp(dataa[0]);
 														setShowPopup(true);
 													}}>
-														<td class="rank">{idx + 1}</td>
+														<td class="rank">{idx + 1}.</td>
 														<td class="team">{ele.csbName}</td>
 														<td class="points">{Math.floor(ele.Ci * 100)} %</td>
 
