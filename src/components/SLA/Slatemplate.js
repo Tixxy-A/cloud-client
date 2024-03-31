@@ -273,13 +273,13 @@ const SLATemplate = () => {
 		<>
 
 			<SLAForm basicModal={basicModal1} setBasicModal={setBasicModal1} toggleShow={toggleShow1} />
-			<div style={{ display: !basicModal1 ? "block" : "none" }}>
-				<div class="sla_container">
+			<div style={{ display: !basicModal1 ? "block" : "none" }} className=' flex justify-center w-3/4'>
+				<div class="sla_container ">
 					<header>
 						<h1 className='mb-4 text-3xl font-extrabold text-gray-900 dark:text-white md:text-5xl lg:text-6xl'>Ranking by SLA Template</h1>
 					</header>
-					<div class="sla_wrapper">
-						<table>
+					<div class="sla_wrapper shadow-2xl ">
+						<table className='text-lg'>
 							<thead>
 								<tr>
 									<th>Rank</th>
@@ -301,11 +301,11 @@ const SLATemplate = () => {
 											//console.log(dataa);
 											return (
 												<>
-													<tr onClick={()=>{
+													<tr className='text-black ' onClick={()=>{
 														settemp(dataa[0]);
 														setShowPopup(true);
 													}}>
-														<td class="rank">{idx + 1}</td>
+														<td class="rank">{idx + 1}.</td>
 														<td class="team">{ele.csbName}</td>
 														<td class="points">{Math.floor(ele.Ci * 100)} %</td>
 
