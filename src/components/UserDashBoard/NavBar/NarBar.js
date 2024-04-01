@@ -3,7 +3,7 @@ import Wrapper from "./NarBarStyles";
 import { useAppContext } from "../../../context/appContext";
 import { useState, useEffect } from "react";
 import debounce from './Debounce';
-import NavLinks from "../NavLinks/NavLinks";
+
 
 const NavBar = () => {
   const [prevScrollPos, setPrevScrollPos] = useState(0);

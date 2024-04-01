@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from 'react'
+import React, { useState} from 'react'
 import SLAForm from './Slaform'
 //import UserNav from '../UserNav/UserNav'
 import './stylee.css'
@@ -7,12 +7,12 @@ import Popup from '../UserDashBoard/Filter/Popup';
 
 //import { fetchData } from '../../../api';
 import linguisticVal from './Linguisticval';
-import { Link } from 'react-router-dom';
+
 import { useAppContext } from '../../context/appContext';
 const SLATemplate = () => {
 	const [showPopup, setShowPopup] = useState(false);
 	const [temp, settemp] = useState(null);
-	const { slaFormData, fetchAllProviders, subscribeTo  } = useAppContext();
+	const { slaFormData, fetchAllProviders } = useAppContext();
 	/* const GlobalState={data,setData} */
 	const [basicModal1, setBasicModal1] = useState(true)
 	const [newData, setnewData] = useState([])

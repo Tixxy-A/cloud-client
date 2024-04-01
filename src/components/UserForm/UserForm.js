@@ -1,7 +1,7 @@
 import React, { useReducer, useState } from "react";
 import { useAppContext } from "../../context/appContext";
 import { useForm } from "react-hook-form";
-import { Navigate, useNavigate } from "react-router-dom";
+
 //import { useAppContext } from "../../context/appContext";
 const max_step = 5;
 const initialAuthState = {
@@ -37,7 +37,6 @@ const UserForm = () => {
   const [inputError, setInputError] = useState(null);
 
   const {
-    watch,
     register,
     handleSubmit,
     formState: { errors, isValid },

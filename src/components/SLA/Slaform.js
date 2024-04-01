@@ -1,27 +1,16 @@
-import React, { useState, useContext } from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import React, {  } from 'react';
+
 
 import { useForm } from "react-hook-form";
-import { MenuItem, Select, Box, Container, Avatar, Typography, Paper, Button, Grid, InputLabel } from '@material-ui/core'
-import { Link } from "react-router-dom";
+
 import {
-  MDBCol,
-  MDBContainer,
-  MDBRow,
-  MDBCard,
-  MDBModal,
-  MDBCardText,
+  
   MDBModalDialog,
   MDBModalContent,
   MDBModalHeader,
   MDBModalTitle,
-  MDBModalBody,
-  MDBModalFooter,
-  MDBCardBody,
-  MDBCardImage,
-  MDBBtn, MDBInput,
-
-  MDBAccordion, MDBAccordionItem
+  MDBModalBody
+  
 
 } from 'mdb-react-ui-kit';
 import { useAppContext } from '../../context/appContext';
@@ -35,33 +24,33 @@ function SLAForm({ basicModal, setBasicModal, toggleShow}) {
   const {
     register,
     handleSubmit,
-    formState: { errors, isValid },
+   
 } = useForm({ mode: "all" });
 
   /* const [formData, setFormData] = useState(slaData) */
   /* const [basicModal, setBasicModal] = useState(true)
   const toggleShow = () => setBasicModal(!basicModal); */
 
-  const formSubmit = (e) => {
-    e.preventDefault();
+//   const formSubmit = (e) => {
+//     e.preventDefault();
     
 
-    /* console.log(slaFormData); */
-    console.log(slaFormData)
+//     /* console.log(slaFormData); */
+//     console.log(slaFormData)
     
-   toggleShow();
+//    toggleShow();
 
     
 
 
-  }
-  const handleChange = (e) => {
-    setSLAFormData({ ...slaFormData, [e.target.name]: e.target.value })
+//   }
+//   const handleChange = (e) => {
+//     setSLAFormData({ ...slaFormData, [e.target.name]: e.target.value })
 
 
 
 
-  }
+//   }
 
   return (
     <div className="absolute top-28 mt-3" style={{height:"10px"}}>

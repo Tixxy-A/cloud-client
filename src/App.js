@@ -13,7 +13,6 @@ import SharedLayout from "./pages/UserDashBoard/SharedLayout";
 import ServiceRequirements from "./pages/UserDashBoard/ServiceRequirements";
 import UserFormPage from "./pages/UserFormPage";
 import ResourceControlPage from "./pages/UserDashBoard/ResourceControlPage";
-import { useAppContext } from "./context/appContext";
 import OverviewPage from "./pages/ProviderDashboard/OverviewPage";
 import ProtectedAdminRoute from "./pages/ProtectedAdminRoute";
 import IndexPage from "./pages/indexPage";
@@ -23,7 +22,7 @@ import Sla from './components/SLA/Slatemplate';
 import Slaprovider from './pages/ProviderDashboard/Sla'
 
 function App() {
-  const { user, provider } = useAppContext();
+  //const { user, provider } = useAppContext();
   return (
     <Router>
       <GlobalStyle />
