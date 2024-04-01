@@ -4,7 +4,7 @@ import React, { useState } from "react";
 
 export default function ResourceControl() {
   const { userResources, subscribedTo, displayAlert, showAlert, alertType, alertText, updateResources, isLoading } = useAppContext();
-  const [data, setdata] = useState([
+  const [data,setdata] = useState([
     {
       title: "Name of Cloud",
       content: userResources.name,
@@ -52,23 +52,23 @@ export default function ResourceControl() {
     console.log("false");
     setvalid(false);
   };
-  const f = (e) => {
-    e.preventDefault();
-    console.log("submit");
-    let newdata = data.map((d) => {
-      if (d.title === field) {
-        return {
-          ...d,
-          content: val,
-        };
-      } else {
-        return d;
-      }
-    });
-    console.log(newdata);
-    setdata(newdata);
-    setvalid(false);
-  };
+  // const f = (e) => {
+  //   e.preventDefault();
+  //   console.log("submit");
+  //   let newdata = data.map((d) => {
+  //     if (d.title === field) {
+  //       return {
+  //         ...d,
+  //         content: val,
+  //       };
+  //     } else {
+  //       return d;
+  //     }
+  //   });
+  //   console.log(newdata);
+  //   setdata(newdata);
+  //   setvalid(false);
+  // };
 
   const handleUpdate = (e) => {
     e.preventDefault();
@@ -98,7 +98,7 @@ export default function ResourceControl() {
     <div className="mt-20">
       <div className="grid grid-cols-4 gap-8 justify-center">
         {data.map((d) => (
-          <div key={d.id} className="py-4 px-2 shadow-2xl rounded-2xl bg-gradient-to-r from-blue-900  hover:scale-110 duration-300">
+          <div key={d.id} className="py-4 px-2 shadow-2xl rounded-2xl bg-gradient-to-r from-blue-700  hover:scale-110 duration-300">
             <h3 className="title text-gray-400 text-s font-bold text-center">
               {d.title}
             </h3>

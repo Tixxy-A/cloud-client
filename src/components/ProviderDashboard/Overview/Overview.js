@@ -1,11 +1,6 @@
 import { useAppContext } from "../../../context/appContext";
 
-const links = [
-  { name: "Open roles", href: "#" },
-  { name: "Internship program", href: "#" },
-  { name: "Our values", href: "#" },
-  { name: "Meet our leadership", href: "#" },
-];
+
 let stats = [
   { name: "Bandwidth", value: "120 MBPS" },
   { name: "Cost", value: "3000 rs" },

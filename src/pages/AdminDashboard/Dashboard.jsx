@@ -1,8 +1,6 @@
 import React from "react";
 import DashboardStatsGrid from "../../components/AdminDashBoard/comps/DashboardStatsGrid";
-import TransactionChart from "../../components/AdminDashBoard/comps/TransactionChart";
 import ProviderStats from "../../components/AdminDashBoard/comps/ProvidersStats";
-import BuyerProfilePieChart from "../../components/AdminDashBoard/comps/BuyerProfilePieChart";
 import ServiceStats from "../../components/AdminDashBoard/comps/ServiceStats";
 
 export default function Dashboard() {

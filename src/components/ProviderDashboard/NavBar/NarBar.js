@@ -1,4 +1,4 @@
-import { FaUserCircle, FaCaretDown, FaAlignLeft } from "react-icons/fa";
+import {  FaAlignLeft } from "react-icons/fa";
 import Wrapper from "./NarBarStyles";
 import { useAppContext } from "../../../context/appContext";
 import { useState , useEffect} from "react";

@@ -1,7 +1,6 @@
-import { Fragment, useRef, useState } from "react";
+import { Fragment, useRef } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { useAppContext } from "../../../context/appContext";
-import { useNavigate } from "react-router-dom";
 //import { ExclamationTriangleIcon } from '@heroicons/react/24/outline'
 
 export default function Popup({
@@ -12,7 +11,7 @@ export default function Popup({
   // const [open, setOpen] = useState(true);
 
   const cancelButtonRef = useRef(null);
-  const navigate = useNavigate();
+  
   const { isLoading, alertType, alertText, subscribeTo, showAlert } =
     useAppContext();
 

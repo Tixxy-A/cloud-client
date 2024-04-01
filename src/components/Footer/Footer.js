@@ -1,18 +1,16 @@
 import React from "react";
 import {
-  FooterLinkItems,
-  FooterLinkTitle,
-  FooterLink,
+  
   FooterLogo,
   SocialIcon,
   FooterRights,
   FooterSocialIcon,
   FooterWrapper,
-  FooterAddress,
+  
   FooterColumn,
   FooterGrid,
 } from "./FooterStyles";
-import { footerData, footerSocialData } from "../../data/FooterData";
+import {  footerSocialData } from "../../data/FooterData";
 import { Row, Section } from "../../globalStyles";
 
 function Footer() {

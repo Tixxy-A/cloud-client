@@ -12,7 +12,7 @@ export default function Single() {
             setService(data.data.data.provider)
             //console.log(data.data.data.provider);
         })
-    }, [])
+    }, [id])
     if(!service){
         return(
             <div className="text-red-700">

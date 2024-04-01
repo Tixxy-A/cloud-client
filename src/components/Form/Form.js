@@ -16,7 +16,7 @@ import {
 import { Container } from "../../globalStyles";
 import validateForm from "./validateForm";
 import { useAppContext } from "../../context/appContext";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Form = (params) => {
   const [name, setName] = useState("");

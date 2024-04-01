@@ -10,9 +10,9 @@ import {
 // A great library for fuzzy filtering/sorting items
 import { matchSorter } from "match-sorter";
 //import { fetchData } from '../../../api/index';
-import { Link ,Navigate} from "react-router-dom";
+import { Link } from "react-router-dom";
 import Popup from "./Popup";
-import data from "./ProvideData";
+
 import { useAppContext } from "../../../context/appContext";
 
 // Define a default UI for filtering
@@ -21,7 +21,7 @@ function GlobalFilter({
   globalFilter,
   setGlobalFilter,
 }) {
-  const count = preGlobalFilteredRows.length;
+ 
   const [value, setValue] = React.useState(globalFilter);
   const onChange = useAsyncDebounce((value) => {
     setGlobalFilter(value || undefined);
@@ -51,8 +51,7 @@ function GlobalFilter({
 function DefaultColumnFilter({
   column: { filterValue, preFilteredRows, setFilter },
 }) {
-  const count = preFilteredRows.length;
-
+  
   return (
     <input
       value={filterValue || ""}
@@ -172,7 +171,7 @@ function SliderColumnFilter({
 function NumberRangeColumnFilter({
   column: { filterValue = [], preFilteredRows, setFilter, id },
 }) {
-  const [min, max] = React.useMemo(() => {
+  const [min,max] = React.useMemo(() => {
     let min = preFilteredRows.length ? preFilteredRows[0].values[id] : 0;
     let max = preFilteredRows.length ? preFilteredRows[0].values[id] : 0;
     preFilteredRows.forEach((row) => {
@@ -476,7 +475,7 @@ function TableView() {
 
   useEffect(() => {
     getData();
-  }, []);
+  });
 
   return (
     <>
