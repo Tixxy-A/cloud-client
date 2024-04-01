@@ -4,7 +4,7 @@ import React, { useState } from "react";
 
 export default function ResourceControl() {
   const { userResources, subscribedTo, displayAlert, showAlert, alertType, alertText, updateResources, isLoading } = useAppContext();
-  const [data,setdata] = useState([
+  const data = [
     {
       title: "Name of Cloud",
       content: userResources.name,
@@ -40,7 +40,7 @@ export default function ResourceControl() {
       content: userResources.response_time,
       id: 7,
     },
-  ]);
+  ];
   const [valid, setvalid] = useState(false);
   const [field, setfield] = useState("");
   const [val, setval] = useState("");
