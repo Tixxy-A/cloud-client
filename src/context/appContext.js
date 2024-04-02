@@ -74,8 +74,6 @@ export const AppProvider = ({ children }) => {
       const userResourcesObj =
         userResourcesStr.length > 0 ? JSON.parse(userResourcesStr) : null;
       initialState.userResources = userResourcesObj;
-      
-      
     }
     if (provider) {
       const providerObj = JSON.parse(provider);
@@ -138,7 +136,7 @@ export const AppProvider = ({ children }) => {
 
     try {
       const response = await axios.patch(
-        'http://localhost:5000/api/v1/user/updateResources',
+        'https://cloud-server-yfoi.onrender.com/api/v1/user/updateResources',
         {
           providerId: state.subscribedTo._id,
           resources,
@@ -180,7 +178,7 @@ export const AppProvider = ({ children }) => {
 
     try {
       const response = await axios.patch(
-        `http://localhost:5000/api/v1/provider/updateDetails/${state.provider._id}`,
+        `https://cloud-server-yfoi.onrender.com/api/v1/provider/updateDetails/${state.provider._id}`,
         {
           newProvider,
         },
@@ -222,7 +220,7 @@ export const AppProvider = ({ children }) => {
     try {
       console.log(currentUser);
       const response = await axios.post(
-        `http://localhost:5000/api/v1/auth/${endpoint}`,
+        `https://cloud-server-yfoi.onrender.com/api/v1/auth/${endpoint}`,
         currentUser
       );
 
@@ -233,6 +231,8 @@ export const AppProvider = ({ children }) => {
       }
       const { user, token } = await response.data.data;
       // console.log(user);
+      localStorage.setItem('userStr', JSON.stringify(user));
+      localStorage.setItem('token', token);
       dispatch({
         type: SETUP_USER_SUCCESS,
         payload: {
@@ -241,8 +241,6 @@ export const AppProvider = ({ children }) => {
           token,
         },
       });
-      localStorage.setItem('userStr', JSON.stringify(user));
-      localStorage.setItem('token', token);
     } catch (error) {
       console.log(error);
       let errMess = error.message;
@@ -263,7 +261,7 @@ export const AppProvider = ({ children }) => {
     try {
       console.log(currentAdmin);
       const response = await axios.post(
-        `http://localhost:5000/api/v1/admin/${endpoint}`,
+        `https://cloud-server-yfoi.onrender.com/api/v1/admin/${endpoint}`,
         currentAdmin
       );
 
@@ -304,7 +302,7 @@ export const AppProvider = ({ children }) => {
 
     try {
       const response = await axios.patch(
-        `http://localhost:5000/api/v1/user/subscribe/${state.user._id}`,
+        `https://cloud-server-yfoi.onrender.com/api/v1/user/subscribe/${state.user._id}`,
         { providerId: provider._id },
         {
           headers: {
@@ -349,7 +347,7 @@ export const AppProvider = ({ children }) => {
     try {
       console.log(currentProvider);
       const response = await axios.post(
-        `http://localhost:5000/api/v1/auth/${endpoint}`,
+        `https://cloud-server-yfoi.onrender.com/api/v1/auth/${endpoint}`,
         currentProvider
       );
 
@@ -453,7 +451,7 @@ export const AppProvider = ({ children }) => {
   const fetchAllProviders = async () => {
     try {
       const response = await axios.get(
-        'http://localhost:5000/api/v1/user/getAllProviders',
+        'https://cloud-server-yfoi.onrender.com/api/v1/user/getAllProviders',
         {
           headers: {
             Authorization: `Bearer ${state.token}`,
