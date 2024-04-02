@@ -7,7 +7,7 @@ export default function Single() {
     const { id } = useParams();
     const [service, setService] = useState();
     useEffect(() => {
-        axios.get(`http://localhost:5000/api/v1/user/getProviderDetails/${id}`).then(data => {
+        axios.get(`https://cloud-server-yfoi.onrender.com/api/v1/user/getProviderDetails/${id}`).then(data => {
             //console.log('pop');
             setService(data.data.data.provider)
             //console.log(data.data.data.provider);
