@@ -1,19 +1,19 @@
-import React, { useState, useEffect } from "react";
-import classes from "./TableStyles.module.css";
+import React, { useState, useEffect } from 'react';
+import classes from './TableStyles.module.css';
 import {
   useTable,
   useFilters,
   useGlobalFilter,
   useAsyncDebounce,
-} from "react-table";
+} from 'react-table';
 
 // A great library for fuzzy filtering/sorting items
-import { matchSorter } from "match-sorter";
+import { matchSorter } from 'match-sorter';
 //import { fetchData } from '../../../api/index';
-import { Link } from "react-router-dom";
-import Popup from "./Popup";
+import { Link } from 'react-router-dom';
+import Popup from './Popup';
 
-import { useAppContext } from "../../../context/appContext";
+import { useAppContext } from '../../../context/appContext';
 
 // Define a default UI for filtering
 function GlobalFilter({
@@ -21,7 +21,6 @@ function GlobalFilter({
   globalFilter,
   setGlobalFilter,
 }) {
- 
   const [value, setValue] = React.useState(globalFilter);
   const onChange = useAsyncDebounce((value) => {
     setGlobalFilter(value || undefined);
@@ -29,18 +28,18 @@ function GlobalFilter({
 
   return (
     <span>
-      Search:{" "}
+      Search:{' '}
       <input
         className="mt-3 mb-2 bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
-        value={value || ""}
+        value={value || ''}
         onChange={(e) => {
           setValue(e.target.value);
           onChange(e.target.value);
         }}
-        placeholder={"Type any requirement here..."}
+        placeholder={'Type any requirement here...'}
         style={{
-          fontSize: "1.1rem",
-          border: "0",
+          fontSize: '1.1rem',
+          border: '0',
         }}
       />
     </span>
@@ -51,24 +50,23 @@ function GlobalFilter({
 function DefaultColumnFilter({
   column: { filterValue, preFilteredRows, setFilter },
 }) {
-  
   return (
     <input
-      value={filterValue || ""}
+      value={filterValue || ''}
       onChange={(e) => {
         setFilter(e.target.value || undefined); // Set undefined to remove the filter entirely
       }}
       placeholder={`Search by name here`}
       style={{
-        padding: ".2rem .4rem",
+        padding: '.2rem .4rem',
 
-        border: "0px",
-        borderRadius: "4px",
-        color: "#3c3c3c",
-        textDecoration: "none",
-        outline: "none",
-        textAlign: "center",
-        marginRight: ".4rem",
+        border: '0px',
+        borderRadius: '4px',
+        color: '#3c3c3c',
+        textDecoration: 'none',
+        outline: 'none',
+        textAlign: 'center',
+        marginRight: '.4rem',
       }}
     />
   );
@@ -97,15 +95,15 @@ function SelectColumnFilter({
         setFilter(e.target.value || undefined);
       }}
       style={{
-        padding: ".2rem .4rem",
-        width: "7.5rem",
-        border: "0px",
-        borderRadius: "4px",
-        color: "#3c3c3c",
-        textDecoration: "none",
-        outline: "none",
-        textAlign: "center",
-        marginRight: ".4rem",
+        padding: '.2rem .4rem',
+        width: '7.5rem',
+        border: '0px',
+        borderRadius: '4px',
+        color: '#3c3c3c',
+        textDecoration: 'none',
+        outline: 'none',
+        textAlign: 'center',
+        marginRight: '.4rem',
       }}
     >
       <option value="">All</option>
@@ -114,8 +112,8 @@ function SelectColumnFilter({
           key={i}
           value={option}
           style={{
-            fontSize: "1.2rem",
-            fontWeight: "500",
+            fontSize: '1.2rem',
+            fontWeight: '500',
           }}
         >
           <div>{option}</div>
@@ -155,9 +153,9 @@ function SliderColumnFilter({
           setFilter(parseInt(e.target.value, 10));
         }}
         style={{
-          height: "8px",
-          background: "radial-gradient(circle at center, #fff, #fafafa)",
-          borderRadius: "4px",
+          height: '8px',
+          background: 'radial-gradient(circle at center, #fff, #fafafa)',
+          borderRadius: '4px',
         }}
       />
       <button onClick={() => setFilter(0)}>Off</button>
@@ -171,7 +169,7 @@ function SliderColumnFilter({
 function NumberRangeColumnFilter({
   column: { filterValue = [], preFilteredRows, setFilter, id },
 }) {
-  const [min, max] =React.useMemo(() => {
+  const [min, max] = React.useMemo(() => {
     let min = preFilteredRows.length ? preFilteredRows[0].values[id] : 0;
     let max = preFilteredRows.length ? preFilteredRows[0].values[id] : 0;
     preFilteredRows.forEach((row) => {
@@ -184,14 +182,14 @@ function NumberRangeColumnFilter({
   return (
     <div
       style={{
-        display: "flex",
-        padding: "10px",
-        justifyContent: "center",
-        alignItems: "center",
+        display: 'flex',
+        padding: '10px',
+        justifyContent: 'center',
+        alignItems: 'center',
       }}
     >
       <input
-        value={filterValue[0] || ""}
+        value={filterValue[0] || ''}
         type="number"
         onChange={(e) => {
           const val = e.target.value;
@@ -202,20 +200,20 @@ function NumberRangeColumnFilter({
         }}
         placeholder={`Min`}
         style={{
-          padding: ".2rem .4rem",
-          width: "7.5rem",
-          border: "0px",
-          borderRadius: "4px",
-          color: "#3c3c3c",
-          textDecoration: "none",
-          outline: "none",
-          textAlign: "center",
-          marginRight: ".4rem",
+          padding: '.2rem .4rem',
+          width: '7.5rem',
+          border: '0px',
+          borderRadius: '4px',
+          color: '#3c3c3c',
+          textDecoration: 'none',
+          outline: 'none',
+          textAlign: 'center',
+          marginRight: '.4rem',
         }}
       />
       To
       <input
-        value={filterValue[1] || ""}
+        value={filterValue[1] || ''}
         type="number"
         onChange={(e) => {
           const val = e.target.value;
@@ -226,15 +224,15 @@ function NumberRangeColumnFilter({
         }}
         placeholder={`Max`}
         style={{
-          padding: ".2rem .4rem",
-          width: "7.5rem",
-          border: "0px",
-          borderRadius: "4px",
-          color: "#3c3c3c",
-          textDecoration: "none",
-          outline: "none",
-          textAlign: "center",
-          marginLeft: ".3rem",
+          padding: '.2rem .4rem',
+          width: '7.5rem',
+          border: '0px',
+          borderRadius: '4px',
+          color: '#3c3c3c',
+          textDecoration: 'none',
+          outline: 'none',
+          textAlign: 'center',
+          marginLeft: '.3rem',
         }}
       />
     </div>
@@ -312,10 +310,10 @@ function Table({ columns, data, setShowPopup, setTempResource }) {
               <tr {...headerGroup.getHeaderGroupProps()}>
                 {headerGroup.headers.map((column) => (
                   <th className="" {...column.getHeaderProps()}>
-                    {column.render("Header")}
+                    {column.render('Header')}
                     {/* Render the columns filter UI */}
-                    <div style={{ marginTop: "1rem" }}>
-                      {column.canFilter ? column.render("Filter") : null}
+                    <div style={{ marginTop: '1rem' }}>
+                      {column.canFilter ? column.render('Filter') : null}
                     </div>
                   </th>
                 ))}
@@ -339,23 +337,20 @@ function Table({ columns, data, setShowPopup, setTempResource }) {
                 <tr {...row.getRowProps()}>
                   {row.cells.map((cell) => {
                     return (
-                      <td className="text-black-200"
+                      <td
+                        className="text-black-200"
                         onClick={() => {
-                          
-                            setTempResource(cell.row.original);
-                            setShowPopup(true);
-                          
-                            
-                            
-                            
-                            
-                          
-                          
+                          setTempResource(cell.row.original);
+                          setShowPopup(true);
                         }}
                         {...cell.getCellProps()}
                       >
-                        {cell.column.Header!=='Name' && cell.render("Cell")}
-                        {cell.column.Header==='Name' && <a href={`/resource/${cell.row.original._id}`}>{cell.row.values.name}</a>}
+                        {cell.column.Header !== 'Name' && cell.render('Cell')}
+                        {cell.column.Header === 'Name' && (
+                          <a href={`/resource/${cell.row.original._id}`}>
+                            {cell.row.values.name}
+                          </a>
+                        )}
                       </td>
                     );
                   })}
@@ -394,7 +389,7 @@ function filterGreaterThan(rows, id, filterValue) {
 // when given the new filter value and returns true, the filter
 // will be automatically removed. Normally this is just an undefined
 // check, but here, we want to remove the filter if it's not a number
-filterGreaterThan.autoRemove = (val) => typeof val !== "number";
+filterGreaterThan.autoRemove = (val) => typeof val !== 'number';
 
 function TableView() {
   const [newData, setnewData] = useState([]);
@@ -419,53 +414,53 @@ function TableView() {
   const columns = React.useMemo(
     () => [
       {
-        Header: "Name",
+        Header: 'Name',
         columns: [
           {
-            Header: "Name",
-            accessor: "name",
+            Header: 'Name',
+            accessor: 'name',
             cell: NavLinkButton,
           },
         ],
       },
       {
-        Header: "Info",
+        Header: 'Info',
         columns: [
           {
-            Header: "Cost (int ₹)",
-            accessor: "cost",
+            Header: 'Cost (int ₹)',
+            accessor: 'cost',
             Filter: NumberRangeColumnFilter,
-            filter: "between",
+            filter: 'between',
           },
           {
-            Header: "Security",
-            accessor: "security_management",
+            Header: 'Security',
+            accessor: 'security_management',
             Filter: SelectColumnFilter,
-            filter: "includes",
+            filter: 'includes',
           },
           {
-            Header: "BandWidth (in Mbps)",
-            accessor: "network_bandwidth",
+            Header: 'BandWidth (in Mbps)',
+            accessor: 'network_bandwidth',
             Filter: SliderColumnFilter,
             filter: filterGreaterThan,
           },
           {
-            Header: "Virtual Machines",
-            accessor: "available_VM",
+            Header: 'Virtual Machines',
+            accessor: 'available_VM',
             Filter: SliderColumnFilter,
             filter: filterGreaterThan,
           },
           {
-            Header: "Response Time (in ms)",
-            accessor: "response_time",
+            Header: 'Response Time (in ms)',
+            accessor: 'response_time',
             Filter: SliderColumnFilter,
             filter: filterGreaterThan,
           },
           {
-            Header: "Flexibility",
-            accessor: "flexibility",
+            Header: 'Flexibility',
+            accessor: 'flexibility',
             Filter: SelectColumnFilter,
-            filter: "includes",
+            filter: 'includes',
           },
         ],
       },
@@ -475,18 +470,17 @@ function TableView() {
 
   useEffect(() => {
     getData();
-  });
+  }, []);
 
   return (
     <>
-      
       <Table
         columns={columns}
         data={newData}
         setShowPopup={setShowPopup}
         setTempResource={setTempResource}
       />
-      
+
       {showPopup && (
         <Popup
           setShowPopup={setShowPopup}
